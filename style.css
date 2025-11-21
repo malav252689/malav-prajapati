@@ -120,6 +120,10 @@ video {
   flex: 2;
 }
 
+section p {
+  text-align: justify;
+}
+
 .media-side {
   flex: 1;
   display: flex;
