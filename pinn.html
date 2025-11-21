@@ -15,14 +15,14 @@
     <a href="contact.html">Contact</a>
   </nav>
 <section>
-  <h2>Research Paper – Physics-Informed Neural Networks for Lid-Driven Cavity Flow</h2>
+  <h2>Research Paper: Physics-Informed Neural Networks for Lid-Driven Cavity Flow</h2>
 
   <p>
     This work investigates the use of <strong>Physics-Informed Neural Networks (PINNs)</strong> as mesh-free and data-efficient
-    alternatives to traditional CFD solvers by solving the incompressible Navier–Stokes equations for the classical
+    alternatives to traditional CFD solvers by solving the incompressible Navier-Stokes equations for the classical
     lid-driven cavity problem. PINNs embed continuity, momentum conservation, and boundary conditions directly into
     the loss function, allowing accurate flow predictions without numerical discretization or large datasets.
-    The cavity benchmark—simple in geometry yet rich in vortical features—provides an ideal test case to evaluate their accuracy.
+    The cavity benchmark-simple in geometry yet rich in vortical features provides an ideal test case to evaluate their accuracy.
   </p>
 
   <p>
@@ -34,21 +34,21 @@
   </p>
 
   <p>
-    Model depth was varied from 2–10 layers, revealing that shallow networks underfit and very deep ones became
+    Model depth was varied from 2-10 layers, revealing that shallow networks underfit and very deep ones became
     difficult to train. An <strong>8-layer architecture</strong> provided the best balance and reproduced the benchmark centerline
     velocity profiles of Ghia and Ghia with high fidelity. Training step analysis showed diminishing accuracy gains
-    beyond ~8000 steps, with 15,000 steps offering the most refined results at increased computational cost.
+    beyond 8000 steps, with 15,000 steps offering the most refined results at increased computational cost.
   </p>
 
   <p>
-    Among tested optimizers—SGD, Adam, AdamW, and Ranger—<strong>AdamW</strong> delivered the most reliable convergence and final
+    Among tested optimizers-SGD, Adam, AdamW, and Ranger: <strong>AdamW</strong> delivered the most reliable convergence and final
     accuracy. Overall, combining Modified FourierNet, an 8-layer depth, and AdamW produced the best reconstruction of
     the lid-driven cavity flow, effectively capturing vortices and velocity fields without mesh-based numerics.
   </p>
 
   <p>
     These results demonstrate the capability of Fourier-enhanced PINNs as accurate and flexible surrogates for CFD,
-    with potential for future extensions to turbulent flows, multi-physics coupling, and hybrid PINN–CFD frameworks.
+    with potential for future extensions to turbulent flows, multi-physics coupling, and hybrid PINN-CFD frameworks.
     This research was accepted for presentation at the
     <strong>12th International and 52nd National Conference on Fluid Mechanics and Fluid Power (FMFP-2025)</strong>.
   </p>
