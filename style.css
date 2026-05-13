@@ -1,139 +1,415 @@
-/* ---------- GLOBAL STYLES ---------- */
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f9fafb;
-  color: #333;
-  margin: 0;
-  line-height: 1.6;
+/* =====================================================
+   PROFESSIONAL PORTFOLIO STYLESHEET
+   Modern • Responsive • Clean • Academic/Engineering
+===================================================== */
+
+/* ---------- ROOT VARIABLES ---------- */
+:root {
+  --primary: #0f172a;
+  --secondary: #1e293b;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.12);
+
+  --radius: 16px;
+  --transition: all 0.3s ease;
 }
 
-/* ---------- NAVIGATION ---------- */
+/* ---------- GLOBAL RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: var(--accent);
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  border-radius: 10px;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* ---------- LINKS ---------- */
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* ---------- NAVBAR ---------- */
 nav {
-  background: #0a192f;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 1.1rem 2rem;
+  box-shadow: var(--shadow-sm);
 }
 
 nav a {
-  color: #fff;
-  margin: 0 1rem;
-  text-decoration: none;
+  color: #f8fafc;
   font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
 }
 
-nav a:hover {
-  color: #64ffda;
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #60a5fa;
+  transition: var(--transition);
 }
 
-/* ---------- HERO SECTION WITH FLEX LAYOUT ---------- */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- HERO SECTION ---------- */
 .hero {
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  gap: 40px;
+  gap: 4rem;
 }
 
 .hero-text {
-  flex: 2;
+  flex: 1;
+}
+
+.hero-text h1 {
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  max-width: 650px;
+}
+
+.hero-image {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-image img {
-  width: 300px;              /* Adjust image size */
-  height: auto;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 24px;
+  object-fit: cover;
+
+  box-shadow: var(--shadow-lg);
+  border: 4px solid white;
+
+  transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+  transform: translateY(-6px);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.85rem 1.6rem;
+
+  background: var(--accent);
+  color: white;
+
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 600;
+
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
-/* ---------- SECTION STYLES ---------- */
+.btn:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+/* ---------- SECTION STYLING ---------- */
 section {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+
+  background: var(--surface);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
 }
 
-h1, h2, h3 {
-  color: #0a192f;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  text-align: center;
-  padding: 1rem;
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* ---------- MEDIA + IMAGE STYLES ---------- */
-img {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-}
-
-/* For any videos used on other pages */
-video {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-}
-
-/* ---------- MOBILE RESPONSIVENESS ---------- */
-@media (max-width: 768px) 
-{
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-image img {
-    width: 70%;
-    margin: 1rem auto;
-  }
-  .content-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .media-side {
-    width: 100%;
-  }
-}
-
-/* ---------- SAE SECTION – TWO COLUMN LAYOUT ---------- */
+/* ---------- CONTENT CONTAINER ---------- */
 .content-container {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .text-content {
   flex: 2;
 }
 
-section p {
-  text-align: justify;
-}
-
 .media-side {
   flex: 1;
+
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
-/* Styling for right-side images */
-.side-image {
+/* ---------- MEDIA ---------- */
+img,
+video {
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.side-image {
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.side-image:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- CARD STYLE (OPTIONAL USE) ---------- */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- SKILLS / TAGS ---------- */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background: #dbeafe;
+  color: #1d4ed8;
+
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 992px) {
+
+  .hero {
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .hero-text p {
+    text-align: center;
+    margin: auto;
+  }
+
+  .hero-image img {
+    max-width: 260px;
+  }
+
+  .content-container {
+    flex-direction: column;
+  }
+
+  .media-side {
+    width: 100%;
+  }
+
+  section {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+
+  nav {
+    gap: 0.8rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 1.2rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
