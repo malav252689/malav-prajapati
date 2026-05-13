@@ -1,63 +1,99 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PINN Research | Malav Prajapati</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="saeaerodesign.html">SAE Aero Design</a>
+    <a href="pinn.html">Research Work</a>
+    <a href="ddc.html">SAEISS DDC</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 <section>
-
-  <h2>Physics-Informed Neural Networks</h2>
+  <h2>Research Paper: Physics-Informed Neural Networks for Lid-Driven Cavity Flow</h2>
 
   <p>
-    My research focuses on applying Physics-Informed Neural Networks (PINNs)
-    to solve computational fluid dynamics and biomedical heat transfer problems.
+    This work investigates the use of <strong>Physics-Informed Neural Networks (PINNs)</strong> as mesh-free and data-efficient
+    alternatives to traditional CFD solvers by solving the incompressible Navier-Stokes equations for the classical
+    lid-driven cavity problem. PINNs embed continuity, momentum conservation, and boundary conditions directly into
+    the loss function, allowing accurate flow predictions without numerical discretization or large datasets.
+    The cavity benchmark-simple in geometry yet rich in vortical features provides an ideal test case to evaluate their accuracy.
   </p>
 
   <p>
-    The initial study investigated lid-driven cavity flow simulations using NVIDIA PhysicsNeMo,
-    exploring architectures including FCNs, FourierNet, Modified FourierNet,
-    and Highway FourierNet.
+    The study was implemented using <strong>NVIDIA’s PhysicsNeMo</strong>, enabling symbolic PDE definitions and automatic
+    differentiation for residual computation. Multiple architectures were tested, including Fully Connected Networks
+    (FCNs), FourierNet, Modified FourierNet, and Highway FourierNet. FCNs exhibited low-frequency limitations, while
+    Fourier-based models captured sharp gradients more effectively. The <strong>Modified FourierNet</strong> consistently achieved
+    the highest stability and accuracy.
   </p>
 
   <p>
-    The work demonstrated strong capability of Fourier-enhanced PINNs in reproducing
-    benchmark CFD solutions without conventional mesh-based numerical discretization.
+    Model depth was varied from 2-10 layers, revealing that shallow networks underfit and very deep ones became
+    difficult to train. An <strong>8-layer architecture</strong> provided the best balance and reproduced the benchmark centerline
+    velocity profiles of Ghia and Ghia with high fidelity. Training step analysis showed diminishing accuracy gains
+    beyond 8000 steps, with 15,000 steps offering the most refined results at increased computational cost.
   </p>
 
+  <p>
+    Among tested optimizers-SGD, Adam, AdamW, and Ranger: <strong>AdamW</strong> delivered the most reliable convergence and final
+    accuracy. Overall, combining Modified FourierNet, an 8-layer depth, and AdamW produced the best reconstruction of
+    the lid-driven cavity flow, effectively capturing vortices and velocity fields without mesh-based numerics.
+  </p>
+
+  <p>
+    These results demonstrate the capability of Fourier-enhanced PINNs as accurate and flexible surrogates for CFD,
+    with potential for future extensions to turbulent flows, multi-physics coupling, and hybrid PINN-CFD frameworks.
+    This research was accepted for presentation at the
+    <strong>12th International and 52nd National Conference on Fluid Mechanics and Fluid Power (FMFP-2025)</strong>.
+  </p>
+</section>
+
+  <!<img src="images/pinn_simulation.jpg" alt="Physics-Informed Neural Network Simulation">>
 </section>
 
 <section>
+  <h2>Extended Research and Current Work</h2>
 
-  <h2>Current Research</h2>
+  <p>
+    Our research team, under the guidance of <strong>Dr. A. M. Lakdawala</strong>, successfully completed and presented 
+    a study on the application of Physics-Informed Neural Networks (PINNs) for solving benchmark fluid flow problems, 
+    culminating in a research paper accepted at the 
+    <strong>12th International and 52nd National Conference on Fluid Mechanics and Fluid Power (FMFP-2025)</strong>.
+    This work established a strong foundation in physics-constrained machine learning, demonstrating the capability 
+    of PINNs to accurately replicate classical CFD solutions without reliance on numerical discretization.
+  </p>
 
-  <div class="project-grid">
+  <p>
+    Building on the methodologies, insights, and computational experience gained from this project, we have expanded 
+    our research toward a highly impactful interdisciplinary application, using PINNs for biomedical thermal modeling. 
+    Our current project focuses on the 
+    <strong>Physics-Informed Neural Network Simulation of Breast Cancer Treatment via Radiofrequency Ablation (RFA)</strong>.
+  </p>
 
-    <div class="project-card">
-      <h3>Lid Driven Cavity Flow</h3>
-      <p>
-        PINN-based CFD modeling using Navier-Stokes equations,
-        symbolic PDE definitions, and automatic differentiation.
-      </p>
-    </div>
+  <p>
+    In this work, we integrate <strong>PINNs with OpenFOAM</strong> to simulate heat-induced tumor destruction, aiming to:
+  </p>
 
-    <div class="project-card">
-      <h3>Biomedical Thermal Modeling</h3>
-      <p>
-        Research involving breast cancer treatment simulation using
-        Radiofrequency Ablation and OpenFOAM-integrated PINNs.
-      </p>
-    </div>
+  <ul>
+    <li>Model the thermal response of malignant breast tissue</li>
+    <li>Predict tumor behavior during RFA exposure</li>
+    <li>Optimize treatment parameters for more effective and minimally invasive therapy</li>
+  </ul>
 
-    <div class="project-card">
-      <h3>IIT Bombay Internship</h3>
-      <p>
-        Research internship under Prof. Atul Sharma focused on
-        advanced thermal simulations and physics-informed ML frameworks.
-      </p>
-    </div>
-
-  </div>
-
+  <p>
+    In recognition of this contribution and its interdisciplinary potential, I have been offered a 
+    <strong>research-based internship at IIT Bombay</strong> under the mentorship of 
+    <strong>Prof. Atul Sharma</strong>, providing an opportunity to further advance this work within a highly specialized 
+    academic environment.
+  </p>
 </section>
 
-<footer>
-  © 2026 Malav Prajapati
-</footer>
-
+  <footer>© 2025 Malav Prajapati</footer>
 </body>
 </html>
