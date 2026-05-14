@@ -142,6 +142,13 @@
         the loss function, allowing accurate flow predictions without numerical discretization or large datasets.
         The cavity benchmark-simple in geometry yet rich in vortical features provides an ideal test case to evaluate their accuracy.
       </p>
+      <p>
+        The study was implemented using <strong>NVIDIA’s PhysicsNeMo</strong>, enabling symbolic PDE definitions and automatic
+        differentiation for residual computation. Multiple architectures were tested, including Fully Connected Networks
+        (FCNs), FourierNet, Modified FourierNet, and Highway FourierNet. FCNs exhibited low-frequency limitations, while
+        Fourier-based models captured sharp gradients more effectively. The <strong>Modified FourierNet</strong> consistently achieved
+        the highest stability and accuracy.
+      </p>
     </div> 
     <div class="media-side">
       <!-- FMFP Certificate -->
@@ -150,14 +157,6 @@
            alt="FMFP Certificate"> 
     </div>
   </div> 
-
-  <p>
-    The study was implemented using <strong>NVIDIA’s PhysicsNeMo</strong>, enabling symbolic PDE definitions and automatic
-    differentiation for residual computation. Multiple architectures were tested, including Fully Connected Networks
-    (FCNs), FourierNet, Modified FourierNet, and Highway FourierNet. FCNs exhibited low-frequency limitations, while
-    Fourier-based models captured sharp gradients more effectively. The <strong>Modified FourierNet</strong> consistently achieved
-    the highest stability and accuracy.
-  </p>
 
   <p>
     Model depth was varied from 2-10 layers, revealing that shallow networks underfit and very deep ones became
