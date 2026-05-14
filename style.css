@@ -54,12 +54,35 @@ body {
   color: var(--text-primary);
   background-color: var(--bg-void);
   background-image:
-    radial-gradient(ellipse 80% 60% at 50% -20%, rgba(14, 165, 233, 0.08) 0%, transparent 70%),
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 48px 48px, 48px 48px;
+    radial-gradient(circle at 15% 20%, rgba(56,189,248,0.12), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(168,85,247,0.10), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(14,165,233,0.08), transparent 35%),
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+   
+   background-size:
+    auto,
+    auto,
+    auto,
+    42px 42px,
+    42px 42px;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at center,
+    transparent 0%,
+    rgba(6,8,16,0.25) 70%,
+    rgba(6,8,16,0.65) 100%);
+
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ── Typography ───────────────────────────────────────────── */
@@ -70,7 +93,8 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; }
+h1 {
+  font-size: clamp(3.5rem, 8vw, 6.8rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.06em; }
 h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
 h3 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
 h4 { font-size: 1.05rem; font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.05em; color: var(--cyan); text-transform: uppercase; }
@@ -145,6 +169,7 @@ nav a {
 }
 
 nav a:hover {
+  transform: translateY(-1px);
   color: var(--cyan);
   border-color: var(--border-hover);
   background: var(--cyan-glow);
@@ -168,12 +193,56 @@ section > section:last-child { border-bottom: none; }
 
 /* ── Hero Section ─────────────────────────────────────────── */
 .hero {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 4rem;
   align-items: start;
   padding-top: calc(var(--nav-h) + 5rem) !important;
   min-height: 100vh;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  top: -220px;
+  right: -180px;
+
+  background:
+    radial-gradient(circle,
+    rgba(56,189,248,0.18),
+    transparent 70%);
+
+  filter: blur(80px);
+
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  bottom: -180px;
+  left: -150px;
+
+  background:
+    radial-gradient(circle,
+    rgba(168,85,247,0.12),
+    transparent 70%);
+
+  filter: blur(90px);
+
+  z-index: -1;
 }
 
 .hero-text h1 {
@@ -186,6 +255,9 @@ section > section:last-child { border-bottom: none; }
 }
 
 .hero-text > p:first-of-type {
+  max-width: 720px;
+  font-size: 1.2rem;
+  line-height: 1.8;
   font-size: 1.05rem;
   font-weight: 400;
   color: var(--text-primary);
@@ -229,6 +301,7 @@ section > section:last-child { border-bottom: none; }
   filter: grayscale(20%) contrast(1.05);
   transition: all var(--transition);
   box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+  background: rgba(255,255,255,0.03);
 }
 
 .hero-image img:hover,
@@ -282,10 +355,34 @@ section > section:last-child { border-bottom: none; }
 }
 
 .side-image:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 4px 30px rgba(56, 189, 248, 0.18);
+
+  border-color: rgba(56,189,248,0.45);
+
+  box-shadow:
+    0 8px 40px rgba(56,189,248,0.22);
+
   filter: grayscale(0%);
-  transform: scale(1.02);
+
+  transform:
+    translateY(-4px)
+    scale(1.025);
+}
+
+.section-label {
+
+  font-family: var(--font-mono);
+
+  color: var(--cyan);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.22em;
+
+  font-size: 0.72rem;
+
+  margin-bottom: 1rem;
+
+  opacity: 0.85;
 }
 
 /* ── Section Headings ─────────────────────────────────────── */
@@ -400,17 +497,43 @@ video:hover { border-color: var(--border-hover); }
 
 /* ── Card-like Sections (ddc, sae) ───────────────────────── */
 body:not(.home) section section {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 2.5rem;
-  margin: 2rem 0;
-  transition: border-color var(--transition), box-shadow var(--transition);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,21,36,0.88),
+      rgba(10,14,24,0.92)
+    );
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  border-radius: 24px;
+
+  padding: 2.8rem;
+
+  margin: 2.5rem 0;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 body:not(.home) section section:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 8px 40px rgba(56, 189, 248, 0.07);
+
+  transform: translateY(-6px);
+
+  border-color: rgba(56,189,248,0.35);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    0 0 40px rgba(56,189,248,0.08);
 }
 
 /* ── Introduction text in DDC / Research ─────────────────── */
@@ -505,6 +628,8 @@ section section {
     gap: 0;
     padding: 0 1rem;
     justify-content: flex-end;
+    box-shadow:
+       0 4px 30px rgba(0,0,0,0.35);
   }
 
   nav::before { display: none; }
