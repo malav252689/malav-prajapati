@@ -145,7 +145,7 @@ nav {
 }
 
 nav::before {
-  content: 'MP';
+  content: 'MAP';
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1rem;
