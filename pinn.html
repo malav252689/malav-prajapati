@@ -25,14 +25,12 @@
     <strong>Computational Fluid Dynamics (CFD) Laboratory</strong> under the mentorship of 
     <strong>Prof. Atul Sharma</strong> and guidance of 
     <strong>Dr. A. M. Lakdawala</strong>. 
-    The project focused on the development of a 
-    <strong>Physics-Informed Neural Network (PINN) framework for multiphase flow problems using the Level-Set Method</strong>.
+    The project focused on the development of a Physics-Informed Neural Network (PINN) framework for multiphase flow problems.
   </p>
 
   <p>
-    The research explored the integration of 
-    <strong>Physics-Informed Machine Learning</strong> with 
-    <strong>classical Computational Fluid Dynamics (CFD)</strong> techniques for solving moving-interface multiphase flow problems. 
+    The research explored the integration of Physics-Informed Machine Learning with 
+    classical Computational Fluid Dynamics (CFD) techniques for solving moving-interface multiphase flow problems. 
     The work emphasized interface transport, curvature prediction, surface tension modeling, 
     and hybrid PINN-CFD frameworks for bubble dynamics.
   </p>
@@ -146,7 +144,7 @@
         The study was implemented using <strong>NVIDIA’s PhysicsNeMo</strong>, enabling symbolic PDE definitions and automatic
         differentiation for residual computation. Multiple architectures were tested, including Fully Connected Networks
         (FCNs), FourierNet, Modified FourierNet, and Highway FourierNet. FCNs exhibited low-frequency limitations, while
-        Fourier-based models captured sharp gradients more effectively. The <strong>Modified FourierNet</strong> consistently achieved
+        Fourier-based models captured sharp gradients more effectively. The Modified FourierNet consistently achieved
         the highest stability and accuracy.
       </p>
     </div> 
@@ -160,13 +158,13 @@
 
   <p>
     Model depth was varied from 2-10 layers, revealing that shallow networks underfit and very deep ones became
-    difficult to train. An <strong>8-layer architecture</strong> provided the best balance and reproduced the benchmark centerline
+    difficult to train. An 8-layer architecture provided the best balance and reproduced the benchmark centerline
     velocity profiles of Ghia and Ghia with high fidelity. Training step analysis showed diminishing accuracy gains
     beyond 8000 steps, with 15,000 steps offering the most refined results at increased computational cost.
   </p>
 
   <p>
-    Among tested optimizers-SGD, Adam, AdamW, and Ranger: <strong>AdamW</strong> delivered the most reliable convergence and final
+    Among tested optimizers-SGD, Adam, AdamW, and Ranger: AdamW delivered the most reliable convergence and final
     accuracy. Overall, combining Modified FourierNet, an 8-layer depth, and AdamW produced the best reconstruction of
     the lid-driven cavity flow, effectively capturing vortices and velocity fields without mesh-based numerics.
   </p>
