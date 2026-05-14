@@ -145,13 +145,30 @@ nav {
 }
 
 nav::before {
-  content: 'MAP';
+
+  content: 'MΔP';
+
   font-family: var(--font-display);
+
   font-weight: 800;
-  font-size: 1rem;
-  color: var(--cyan);
-  letter-spacing: 0.1em;
+
+  font-size: 1.1rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e8edf5 0%,
+      var(--cyan) 60%,
+      #a78bfa 100%
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 0.14em;
+
   position: absolute;
+
   left: 2rem;
 }
 
