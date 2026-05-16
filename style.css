@@ -218,6 +218,7 @@ section > section:last-child { border-bottom: none; }
   align-items: start;
   padding-top: calc(var(--nav-h) + 5rem) !important;
   min-height: 100vh;
+  align-items: flex-start;
 }
 
 .hero::before {
@@ -572,7 +573,10 @@ section > section:last-child { border-bottom: none; }
 /* ── Hero Image ───────────────────────────────────────────── */
 .hero-image {
   position: sticky;
-  top: calc(var(--nav-h) + 2rem);
+  top: calc(var(--nav-h) + 0.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   animation:
   fadeSlideUp 1s ease 0.5s both,
   floatGlow 6s ease-in-out infinite;
