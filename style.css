@@ -555,6 +555,22 @@ section > section:last-child { border-bottom: none; }
   line-height: 1.5;
 }
 
+.education-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.education-item h4 {
+  margin-bottom: 0.1rem;
+  line-height: 1.05;
+}
+
+.education-item p {
+  margin: 0;
+  line-height: 1.05;
+}
+
 /* MOBILE RESPONSIVE */
 
 @media (max-width: 900px) {
