@@ -217,7 +217,8 @@ section > section:last-child { border-bottom: none; }
   gap: 4rem;
   align-items: start;
   padding-top: calc(var(--nav-h) + 5rem) !important;
-  min-height: 100vh;
+  min-height: auto;
+  padding-bottom: 3rem;
   align-items: flex-start;
 }
 
@@ -461,7 +462,7 @@ section > section:last-child { border-bottom: none; }
 
   border-radius: 18px;
 
-  padding: 1rem 1.1rem;
+  padding: 0.9rem 1rem;
 
   min-height: 135px;
 
@@ -513,7 +514,7 @@ section > section:last-child { border-bottom: none; }
 
   font-size: 0.82rem;
 
-  line-height: 1.45;
+  line-height: 1.3;
 
   color: var(--text-secondary);
 
